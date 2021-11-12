@@ -1,0 +1,59 @@
+WITH CACHE FLUSHING
+
+siege -f urls.txt -c 255 -t120s
+** SIEGE 4.0.4
+** Preparing 255 concurrent users for battle.
+The server is now under siege...
+Lifting the server siege...
+Transactions:                  35599 hits
+Availability:                  99.88 %
+Elapsed time:                 119.44 secs
+Data transferred:              53.25 MB
+Response time:                  0.63 secs
+Transaction rate:             298.05 trans/sec
+Throughput:                     0.45 MB/sec
+Concurrency:                  187.22
+Successful transactions:       35599
+Failed transactions:              43
+Longest transaction:           68.26
+Shortest transaction:           0.02
+
+
+WITHOUT CACHE FLUSHING
+siege -f urls.txt -c 255 -t120s
+** SIEGE 4.0.4
+** Preparing 255 concurrent users for battle.
+The server is now under siege...
+Lifting the server siege...
+Transactions:                  35614 hits
+Availability:                  99.94 %
+Elapsed time:                 119.05 secs
+Data transferred:              53.27 MB
+Response time:                  0.64 secs
+Transaction rate:             299.15 trans/sec
+Throughput:                     0.45 MB/sec
+Concurrency:                  192.20
+Successful transactions:       35614
+Failed transactions:              20
+Longest transaction:          117.07
+Shortest transaction:           0.02
+
+
+WITHOUT REDIS
+ siege -f urls.txt -c 255 -t120s
+** SIEGE 4.0.4
+** Preparing 255 concurrent users for battle.
+The server is now under siege...
+Lifting the server siege...
+Transactions:                  36648 hits
+Availability:                  99.99 %
+Elapsed time:                 119.82 secs
+Data transferred:              54.82 MB
+Response time:                  0.47 secs
+Transaction rate:             305.86 trans/sec
+Throughput:                     0.46 MB/sec
+Concurrency:                  142.34
+Successful transactions:       36648
+Failed transactions:               2
+Longest transaction:          107.90
+Shortest transaction:           0.02

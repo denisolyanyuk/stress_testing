@@ -1,0 +1,22 @@
+{
+    "name":"InfluxDB",
+    "type":"influxdb",
+    "access":"proxy",
+    "url":"http://influxdb:8086",
+    "isDefault":true,
+    "jsonData":
+    {
+        "version":"Flux",
+        "httpMode":"POST",
+        "httpHeaderName1":"Authorization",
+        "defaultBucket":"telegraf_bucket",
+        "organization":"telegraf"
+    },
+    "version":1,
+    "readOnly":false,
+    "secureJsonData":
+    {
+        "httpHeaderValue1":"Token 1xYtRkA-RZDWUIoXy_1wZXC39KcIaEbdxefOJA9G_vldcsjOHrOgEBkZXD2v28RRx_rXAB-K_FA7gCSfdEKqTg==",
+        "token":"new_pass"
+    }
+}

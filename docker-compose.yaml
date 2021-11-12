@@ -1,0 +1,38 @@
+version: "3.7"
+
+services:
+  mongodb:
+    image: mongo:5.0.0
+    container_name: mongodb_stres_testing
+    restart: on-failure
+    ports:
+      - 27017:27017
+    volumes:
+      - ./data/docker/mongo/data:/data/db
+
+
+  redis:
+    image: redis:6.2.6
+    container_name: redis_stres_testing
+    command: redis-server /usr/local/etc/redis/redis.conf
+    ports:
+      - 6379:6379
+    volumes:
+      - ./data/docker/redis/redis.conf:/usr/local/etc/redis/redis.conf
+
+
+
+  web:
+    build: ./djano_pj
+    command:
+      ['python', 'manage.py', 'runserver', '0.0.0.0:8000']
+    container_name: web_stres_testing
+    volumes:
+      - .:/django_pj
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongodb
+
+
+
